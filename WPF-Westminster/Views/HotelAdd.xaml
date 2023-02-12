@@ -1,0 +1,150 @@
+﻿<Window x:Class="WPF_Westminster.Views.HotelAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Westminster.Views"
+        mc:Ignorable="d"
+        Title="HotelAdd" Height="429" Width="645"
+        AllowsTransparency="True" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" 
+        Background="Transparent">
+    <Border Margin="0,0,0,-6"
+            CornerRadius="20,20,20,20">
+
+
+
+
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#FF475163" Offset="0" />
+                <GradientStop Color="#FF586169" Offset="1" />
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+
+
+
+
+
+
+
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="452*"/>
+                <ColumnDefinition Width="44*"/>
+                <ColumnDefinition Width="149*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+
+
+
+
+            <DataGrid x:Name="GridHotel"
+                  x:FieldModifier="public"
+                  AutoGenerateColumns="False"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  IsReadOnly="True"
+                  HorizontalContentAlignment="Stretch"
+                  ColumnWidth="*" Margin="15,0,2,0" 
+                  Background="#525666" 
+                  AlternatingRowBackground="#525666" 
+                  RowBackground="#525666" 
+                  BorderBrush="#FF0A0909">
+
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номера" Width="*" Binding="{Binding Номера}"/>
+                    <DataGridTextColumn Header="Услуги" Width="*" Binding="{Binding Услуги}"/>
+                    <DataGridTextColumn Header="Цена" Width="*" Binding="{Binding Цена}"/>
+                    <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding Дата}"/>
+
+
+                </DataGrid.Columns>
+
+
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#797979"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                    </Style>
+                </DataGrid.Resources>
+
+
+            </DataGrid>
+
+            <Button x:Name="btnClose"
+                              Style="{StaticResource ControlButton}"
+                                Click="btnClose_Click" 
+                                Margin="101,5,13,416" Grid.Column="2">
+                <Image Source="/imageB/X.png" Height="15" Width="22"
+                                   />
+
+            </Button>
+
+
+
+
+
+
+
+
+
+
+
+            <Button x:Name="txtAddButton"
+            Style="{StaticResource BTNbutton}"
+            BorderThickness="0"
+            Content="Добавить"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Margin="26,153,33,256" Click="txtAddButton_Click" Grid.Column="2">
+
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+
+            </Button>
+            <Label Content="Номера:" Margin="450,19,13,390" Grid.ColumnSpan="3"/>
+            <TextBox  x:Name="txtNomer"  TextWrapping="Wrap"  Margin="10,24,18,395" Grid.Column="2" Background="#525666"  />
+            <Label Content="Услуги:" Margin="450,51,13,354" Grid.ColumnSpan="3"/>
+            <TextBox  x:Name="txtFIO"  TextWrapping="Wrap"  Margin="10,56,18,362" Grid.Column="2" Background="#525666" />
+
+
+            <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown" HorizontalAlignment="Left" Width="587" Margin="10,0,0,411" Grid.ColumnSpan="3">
+
+            </StackPanel>
+            <Label Content="Цена:" Margin="0,81,13,324" Grid.ColumnSpan="2" Grid.Column="1"/>
+            <TextBox  x:Name="txtFIO1"  TextWrapping="Wrap"  Margin="10,86,18,332" Grid.Column="2" Background="#525666" />
+            <Label Content="Дата:" Margin="0,111,13,294" Grid.ColumnSpan="2" Grid.Column="1"/>
+            <TextBox  x:Name="txtFIO1_Copy"  TextWrapping="Wrap"  Margin="10,116,18,302" Grid.Column="2" Background="#525666" />
+
+
+        </Grid>
+
+
+
+    </Border>
+</Window>
+    

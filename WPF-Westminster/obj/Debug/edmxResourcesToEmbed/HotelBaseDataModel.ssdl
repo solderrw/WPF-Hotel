@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище HotelBaseDataModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Номера" Type="nchar" MaxLength="50" />
+    <Property Name="Услуги" Type="nchar" MaxLength="50" />
+    <Property Name="Цена" Type="nchar" MaxLength="50" />
+    <Property Name="Дата" Type="date" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="roleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roletype" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+    <Property Name="Password" Type="nchar" MaxLength="10" />
+    <Property Name="userrole" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Запросы">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Номер" Type="nchar" MaxLength="50" />
+    <Property Name="Услуги" Type="nchar" MaxLength="50" />
+    <Property Name="ФИО" Type="nchar" MaxLength="50" />
+    <Property Name="Дата" Type="date" />
+  </EntityType>
+  <EntityContainer Name="Хранилище HotelBaseDataModelContainer">
+    <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Запросы" EntityType="Self.Запросы" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,214 @@
+﻿<UserControl x:Class="WPF_Westminster.Views.Products"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:WPF_Westminster.ViewsModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="622" Style="{StaticResource Page_Style}">
+
+    <UserControl.DataContext>
+        <vm:ProductVM/>
+    </UserControl.DataContext>
+
+
+    <Grid Margin="0,0,-37,0">
+
+        <StackPanel Orientation="Horizontal"
+                                Margin="17,20,17,540">
+
+            <Image Source="/ImageB/dfss.png" Width="50" />
+
+            <TextBlock Text="Списки" Foreground="Black"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   />
+        </StackPanel>
+
+        <DataGrid x:Name="GridHotel"
+                  x:FieldModifier="public"
+                  AutoGenerateColumns="False"
+                  d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"
+                  HorizontalContentAlignment="Stretch"
+                  ColumnWidth="*" 
+                  Margin="42,96,376,173"
+                  Background="#525666" 
+                  AlternatingRowBackground="#525666" 
+                  RowBackground="#525666" 
+                  BorderBrush="#FF0A0909">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номера" Width="*" Binding="{Binding Номера}"/>
+                <DataGridTextColumn Header="Услуги" Width="*" Binding="{Binding Услуги}"/>
+                <DataGridTextColumn Header="Цена" Width="*" Binding="{Binding Цена}"/>
+                <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding Дата}"/>
+
+            </DataGrid.Columns>
+
+
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF8189AD"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </DataGrid.Resources>
+
+        </DataGrid>
+        <Button x:Name="btnAdd"
+            Style="{StaticResource BTNbutton}" 
+            Content="Добавить" 
+            Margin="42,432,562,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnAdd_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <Button x:Name="Btnizi"
+            Style="{StaticResource BTNbutton}" 
+            Content="Изменить" 
+            Margin="147,432,457,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="Btnizi_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <Button x:Name="btnDelet"
+            Style="{StaticResource BTNbutton}" 
+            Content="Удалить" 
+            Margin="362,432,242,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnDelet_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <Button x:Name="btnObna"
+            Style="{StaticResource BTNbutton}" 
+            Content="Обновить" 
+            Margin="468,432,136,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnObna_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <Button x:Name="btnAdd_Copy"
+            Style="{StaticResource BTNbutton}" 
+            Content="Фильтрация" 
+            Margin="256,432,349,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnAdd_Copy_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <DataGrid x:Name="GridZaproc"
+            x:FieldModifier="public"
+            AutoGenerateColumns="False"
+            d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"
+            HorizontalContentAlignment="Stretch"
+            ColumnWidth="*" 
+            Margin="330,96,89,173"
+            Background="#525666" 
+            AlternatingRowBackground="#525666" 
+            RowBackground="#525666" 
+            BorderBrush="#FF0A0909">
+
+
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF8189AD"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номера" Width="*" Binding="{Binding Номера}"/>
+                <DataGridTextColumn Header="Услуги" Width="*" Binding="{Binding Услуги}"/>
+                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding ФИО}"/>
+                <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding Дата}"/>
+
+            </DataGrid.Columns>
+
+
+
+        </DataGrid>
+        <Label Content="Запросы с Аккаунтов" Margin="390,65,107,499"/>
+        <Label Content="Запросы Менеджера" Margin="94,65,403,499"/>
+        <Button x:Name="btnAdd_Copy12"
+            Style="{StaticResource BTNbutton}" 
+            Content="Добавить запрос Менеджер" 
+            Margin="248,492,284,74"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnAdd_Copy12_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>

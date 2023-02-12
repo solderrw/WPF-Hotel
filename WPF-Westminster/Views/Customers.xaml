@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="WPF_Westminster.Views.Customers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:WPF_Westminster.ViewsModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="622"
+             Style="{StaticResource Page_Style}">
+
+
+    <UserControl.DataContext>
+        <vm:CustomerVM/>
+    </UserControl.DataContext>
+
+
+    <Grid Margin="0,0,-37,0">
+        <StackPanel Orientation="Horizontal"
+                                Margin="17,20,17,540">
+
+            <Image Source="/ImageB/User.png" Width="50" />
+
+            <TextBlock Text="Аккаунты" Foreground="Black"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   />
+        </StackPanel>
+        <DataGrid x:Name="GridUsers"
+                  x:FieldModifier="public"
+                  AutoGenerateColumns="False"
+                  d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"
+                  HorizontalContentAlignment="Stretch"
+                  ColumnWidth="*" 
+                  Margin="42,96,136,173" 
+                  Background="#525666" 
+                  AlternatingRowBackground="#525666" 
+                  RowBackground="#525666" 
+                  BorderBrush="#FF0A0909">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="Должность" Width="*" Binding="{Binding userrole}"/>
+
+            </DataGrid.Columns>
+
+
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF8189AD"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </DataGrid.Resources>
+
+        </DataGrid>
+        <Button x:Name="btnAdd"
+            Style="{StaticResource BTNbutton}" 
+            Content="Добавить" 
+            Margin="42,432,537,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnAdd_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <Button x:Name="Btnizi"
+            Style="{StaticResource BTNbutton}" 
+            Content="Изменить" 
+            Margin="169,432,410,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="Btnizi_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <Button x:Name="btnDelet"
+            Style="{StaticResource BTNbutton}" 
+            Content="Удалить" 
+            Margin="296,432,283,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnDelet_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+        <Button x:Name="btnObna"
+            Style="{StaticResource BTNbutton}" 
+            Content="Обновить" 
+            Margin="423,432,156,134"
+            FontSize="12"
+            BorderThickness="0"
+            Cursor="Hand" Click="btnObna_Click">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+
+        </Button>
+
+
+    </Grid>
+</UserControl>
